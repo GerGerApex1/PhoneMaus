@@ -1,0 +1,23 @@
+{
+  "name": "phonemaus",
+  "version": "0.0.1-Alpha",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "npm --prefix ./server install ./mouse_event"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GerGerApex1/PhoneMaus.git"
+  },
+  "author": "",
+  "license": "GNU-3.0",
+  "bugs": {
+    "url": "https://github.com/GerGerApex1/PhoneMaus/issues"
+  },
+  "workspaces": [
+    "server",
+    "mouse_event"
+  ],
+  "homepage": "https://github.com/GerGerApex1/PhoneMaus#readme"
+}

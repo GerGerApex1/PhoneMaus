@@ -1,2 +1,5 @@
 .env
 config.json
+dist/*
+package-lock.json
+utils

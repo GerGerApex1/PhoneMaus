@@ -9,6 +9,7 @@ class Server {
         this.expressServer = this.initiateServer(port, ip)
         this.websocket = this.createWebsocketServer();
         this.code = 100000;
+        this.generatePairCode()
         setInterval(() => {
             this.generatePairCode()
         }, codeInterval);
@@ -68,6 +69,18 @@ class Server {
         server.on('close', function (ws) {
             info('Phone Disconnected!')
         })
+        server.on('checkContinue', function (ws) {
+            info('Phone Disconnected!')
+        })
+        server.on('checkExpectation', function (ws) {
+            info('Phone Disconnected!')
+        })
+        server.on('clientError', function (ws) {
+            info('Phone Disconnected!')
+        })
+        server.on('close', function (ws) {
+            info('Phone Disconnected!')
+        })
         return server
     }
     createWebsocketServer() {
@@ -82,7 +95,7 @@ class Server {
     generatePairCode() {
         crypto.randomInt(100000, 999999, (err, n) => {
             if (err) throw err;
-			this.code = n
+			this.code = 100000
             info(`${this.#msToSeconds(this.code)} seconds are up, New code: ${this.code}`)
 
         });

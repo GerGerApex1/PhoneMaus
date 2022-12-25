@@ -2,11 +2,13 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "node.js",
+  "main": "index.js",
+  "bin": "index.js",
   "scripts": {
     "run": "node index.js",
     "runDebug": "qode index.js --ENABLE_GUI",
-    "hotReload": "nodemon -e js,ts,tsx --ignore dist/ --ignore node_modules/ --exec npm run gui"
+    "hotReload": "nodemon -e js,ts,tsx --ignore dist/ --ignore node_modules/ --exec npm run gui",
+    "compile": "pkg ."
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +16,7 @@
     "chalk": "4.1.2",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "mouse_event": "file:../mouse_event",
     "uuid": "^9.0.0",
     "ws": "^8.11.0"
   },
@@ -24,5 +27,14 @@
   "devDependencies": {
     "node-gyp": "^9.3.0",
     "nodemon": "^2.0.20"
+  },
+  "pkg": {
+    "targets": [
+      "node16-linux-arm64",
+      "node16-win-arm64",
+      "node16-macos-arm64"
+    ],
+    "outputPath": "../dist",
+    "scripts":"./**/*.js"
   }
 }
